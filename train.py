@@ -8,7 +8,6 @@ import matplotlib as mpl
 import pandas as pd
 import numpy as np
 from sklearn.utils.class_weight import compute_class_weight
-from torchsummary import summary
 
 import torch
 from torch.utils.data import DataLoader
