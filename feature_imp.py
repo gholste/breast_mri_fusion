@@ -86,7 +86,7 @@ def main(args):
         # model_name = "110420_feature-fusion_aug_ls0.1_TTA-5_seed3"
     elif args.model == "learned-feature-fusion":
         fusion = True
-        model = HiddenFeatureFusion(meta_features=test_data.meta_features, mode=args.fusion_mode, pre_trained=False, frozen=False).to(device)
+        model = LearnedFeatureFusion(meta_features=test_data.meta_features, mode=args.fusion_mode, pre_trained=False, frozen=False).to(device)
         # model_name = "110420_hidden-feature-fusion-concat_aug_ls0.1_TTA-5_seed4"
     elif args.model == "probability-fusion":
         fusion = True
