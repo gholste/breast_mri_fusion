@@ -169,3 +169,55 @@ class ProbabilityFusion(torch.nn.Module):
         x = self.classifier.forward(x)
 
         return x
+
+class LearnedFeatureFusionVariant(torch.nn.Module):
+    def __init__(self, meta_features, mode="concat", pre_trained=True, frozen=False):
+        super(LearnedFeatureFusionModel, self).__init__()
+        assert mode in ["concat", "multiply", "add"], "mode must be one of ['concat', 'multiply', 'add']"
+
+        self.meta_features = meta_features
+        self.mode = mode
+
+        self.cnn = ResNet50FeatureExtractor(pre_trained=pre_trained, frozen=frozen)
+        self.cnn.fc = torch.nn.Sequential(
+            torch.nn.Linear(2048, 512),
+            torch.nn.ReLU(inplace=True)
+        )
+
+        self.cnn_cls = torch.nn.Linear(512, 1)
+
+        self.meta_nn = torch.nn.Sequential(
+            torch.nn.Linear(self.meta_features, 1024),
+            torch.nn.ReLU(inplace=True),
+            torch.nn.Linear(1024, 512),
+            torch.nn.ReLU(inplace=True),
+        )
+
+        self.meta_nn_cls = torch.nn.Linear(512, 1)
+
+        self.classifier = torch.nn.Sequential(
+            torch.nn.Dropout(p=0.25),
+            torch.nn.Linear(512*2 if self.mode == "concat" else 512, 512),
+            torch.nn.ReLU(inplace=True),
+            torch.nn.Dropout(p=0.25),
+            torch.nn.Linear(512, 1)
+        )
+
+
+    def forward(self, im, meta):
+        f_i = self.cnn.forward(im)
+        f_i = self.cnn.fc.forward(f_i)
+        f_m = self.meta_nn.forward(meta)
+
+        if self.mode == "concat":
+            f_f = torch.cat((f_i, f_m), dim=-1)
+        if self.mode == "multiply":
+            f_f = f_i*f_m
+        if self.mode == "add":
+            f_f = f_i+f_m
+
+        y_f = self.classifier(f_f)
+        y_i = self.cnn_cls(f_i)
+        y_m = self.meta_nn_cls(f_m)
+
+        return {'img_out': y_i, 'meta_out': y_m, 'fusion_out': y_f}

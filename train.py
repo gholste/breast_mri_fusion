@@ -56,7 +56,12 @@ def main(args):
         model = FeatureFusion(meta_features=train_data.meta_features, pre_trained=args.pretrained, frozen=False).to(device)
         fusion, meta_only = True, False
     elif args.model == "learned-feature-fusion":
-        model = LearnedFeatureFusion(meta_features=train_data.meta_features, mode=args.fusion_mode, pre_trained=args.pretrained, frozen=False).to(device)
+        if args.train_mode == "default":
+            model = LearnedFeatureFusion(meta_features=train_data.meta_features, mode=args.fusion_mode, pre_trained=args.pretrained, frozen=False).to(device)
+        elif args.train_mode == "multiloss" or args.train_mode == "multiopt":
+            model = LearnedFeatureFusionVariant(meta_features=train_data.meta_features, mode=args.fusion_mode, pre_trained=args.pretrained, frozen=False).to(device)
+        else:
+            sys.exit("Invalid train_mode specified")
         fusion, meta_only = True, False
     elif args.model == "probability-fusion":
         model = ProbabilityFusion(meta_features=train_data.meta_features, pre_trained=args.pretrained, frozen=False).to(device)
