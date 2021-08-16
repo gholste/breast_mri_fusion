@@ -172,7 +172,7 @@ class ProbabilityFusion(torch.nn.Module):
 
 class LearnedFeatureFusionVariant(torch.nn.Module):
     def __init__(self, meta_features, mode="concat", pre_trained=True, frozen=False):
-        super(LearnedFeatureFusionModel, self).__init__()
+        super(LearnedFeatureFusionVariant, self).__init__()
         assert mode in ["concat", "multiply", "add"], "mode must be one of ['concat', 'multiply', 'add']"
 
         self.meta_features = meta_features
