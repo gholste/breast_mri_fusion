@@ -1,7 +1,8 @@
 # breast_mri_fusion
 
-Author: Greg Holste, Adam Alessio<br>
+Author: Greg Holste, Adam Alessio<br/>
 Last Modified: 08/16/21
+
 --------------
 
 ## Description
