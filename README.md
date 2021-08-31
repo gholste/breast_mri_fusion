@@ -39,7 +39,7 @@ Assuming you have Anaconda installed, run `conda env create -f mri_fusion.yaml` 
 │   │   ├── 1_meta.npy
 │   │   ├── ...
 ```
-where `*_x.npy` contains a preprocessed image of shape `(h, w, c)`, `*_y.npy` contains the associated target of shape `(1,)`, and `*_meta.npy` contains the associate non-image data of shape `(n_features,)`. (This repository could easily be adapted to perform multi-class classification by tweaking the output layers and activations of the architectures in `models.py`.)
+where `*_x.npy` contains a preprocessed image of shape `(h, w, c)`, `*_y.npy` contains the associated target of shape `(1,)`, and `*_meta.npy` contains the associated non-image data of shape `(n_features,)`. (This repository could easily be adapted to perform multi-class classification by tweaking the output layers and activations of the architectures in `models.py`.)
 
 Once this is complete, you can simply run `train.py` with the arguments of your choice; for example, if you wanted to train the Learned Feature Fusion model on your dataset with the settings used in the paper, you might run
 ```python
