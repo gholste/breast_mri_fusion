@@ -190,23 +190,23 @@ nohup python train.py --seed 4 --model learned-feature-fusion --fusion_mode add 
 #################################################################
 ## LEARNED FEATURE FUSION VARIANT (EACH SUBNETWORK OPTIMIZED INDEPENDENTLY) ##
 # export CUDA_VISIBLE_DEVICES=0
-nohup python train_multiloss.py --seed 0 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 0 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiopt.out &
 
 # export CUDA_VISIBLE_DEVICES=1
-nohup python train_multiloss.py --seed 1 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 1 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiopt_seed1.out &
 
 # export CUDA_VISIBLE_DEVICES=0
-nohup python train_multiloss.py --seed 2 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 2 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiopt_seed2.out &
 
 # export CUDA_VISIBLE_DEVICES=3
-nohup python train_multiloss.py --seed 3 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 3 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiopt_seed3.out &
 
 # export CUDA_VISIBLE_DEVICES=1
-nohup python train_multiloss.py --seed 4 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 4 --model learned-feature-fusion --train_mode multiopt --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiopt_seed4.out &
 ## END LEARNED FEATURE FUSION VARIANT (EACH SUBNETWORK OPTIMIZED INDEPENDENTLY) ##
 #################################################################
@@ -215,23 +215,23 @@ nohup python train_multiloss.py --seed 4 --model learned-feature-fusion --train_
 #################################################################
 ## LEARNED FEATURE FUSION VARIANT (TRAINED ON SUM OF THREE LOSSES) ##
 # export CUDA_VISIBLE_DEVICES=1
-nohup python train_multiloss.py --seed 0 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 0 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiloss.out &
 
 # export CUDA_VISIBLE_DEVICES=1
-nohup python train_multiloss.py --seed 1 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 1 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiloss_seed1.out &
 
 # export CUDA_VISIBLE_DEVICES=2
-nohup python train_multiloss.py --seed 2 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 2 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiloss_seed2.out &
 
 # export CUDA_VISIBLE_DEVICES=2
-nohup python train_multiloss.py --seed 3 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 3 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiloss_seed3.out &
 
 # export CUDA_VISIBLE_DEVICES=3
-nohup python train_multiloss.py --seed 4 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
+nohup python train.py --seed 4 --model learned-feature-fusion --train_mode multiloss --fusion_mode concat --n_TTA 5 --augment --use_class_weights --label_smoothing 0.1 \
     > learned-feature-fusion_aug_ls0.1_multiloss_seed4.out &
 ## LEARNED FEATURE FUSION (TRAINED ON SUM OF THREE LOSSES) ##
 #################################################################
