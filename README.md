@@ -7,7 +7,7 @@ Last Modified: 08/16/21
 
 ## Description
 
-Code for [CVMAD 2021](https://sites.google.com/view/CVAMD2021/) paper, "End-to-End Learning of Fused Image and Non-Image Feature for Improved Breast Cancer Classification from MRI" by Gregory Holste, Savannah Partridge, Habib Rahbar, Debosmita Biswas, Christoph Lee, and Adam Alessio.
+Code for [CVAMD 2021](https://sites.google.com/view/CVAMD2021/) paper, "End-to-End Learning of Fused Image and Non-Image Feature for Improved Breast Cancer Classification from MRI" by Gregory Holste, Savannah Partridge, Habib Rahbar, Debosmita Biswas, Christoph Lee, and Adam Alessio.
 
 <!-- ![](figs/fusion_architectures_all_v11.png) -->
 <p align=center>
